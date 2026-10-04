@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NEUQUA — Intelligent Vestibular Monitoring, Reimagined.</title>
+<meta name="description" content="NEUQUA is a conceptual smart-glasses system for vestibular monitoring.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="loader"><span>NEUQUA</span><i></i></div>
+
+<header class="nav">
+  <a href="#hero" class="logo">NEUQUA</a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><b></b><b></b></button>
+  <nav id="menu">
+    <a href="#frame" data-s="frame">Design</a>
+    <a href="#eyes" data-s="eyes">Monitoring</a>
+    <a href="#movement" data-s="movement">Movement</a>
+    <a href="#analysis" data-s="analysis">Analysis</a>
+    <a href="#alert" data-s="alert">Alerts</a>
+    <a href="#join" data-s="join">Join</a>
+  </nav>
+</header>
+
+<div class="stage" id="stage">
+  <canvas id="gl"></canvas>
+  <svg id="callouts" aria-hidden="true"></svg>
+</div>
+
+<main>
+  <section id="hero" class="hero" data-state="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Vestibular health, worn</p>
+      <h1>Intelligent Vestibular Monitoring, Reimagined.</h1>
+    </div>
+    <p class="hint" id="hint"><span></span>Drag to explore 360°</p>
+    <p class="fine">Conceptual product · Prototype render</p>
+  </section>
+
+  <section id="frame" class="sec left" data-state="frame">
+    <div class="col">
+      <p class="eyebrow">The frame</p>
+      <h2 class="rv">Looks like glasses.<br>Reads like a clinic.</h2>
+      <p class="rv">A lightweight titanium frame with a deliberate acetate-style front. Sensors sit quietly on the inside, so the glasses look like glasses from the outside.</p>
+      <dl class="specs rv">
+        <div><dt>Weight</dt><dd>28 g</dd></div>
+        <div><dt>Inward cameras</dt><dd>2</dd></div>
+        <div><dt>Frame</dt><dd>Aerospace-grade titanium</dd></div>
+        <div><dt>Continuous sensing</dt><dd>Up to 18 hours</dd></div>
+      </dl>
+      <p class="fine">Proposed specifications. Not clinically validated.</p>
+    </div>
+  </section>
+
+  <section id="eyes" class="sec right" data-state="eyes">
+    <div class="col">
+      <p class="eyebrow">Eye &amp; vestibular monitoring</p>
+      <h2 class="rv">It watches how<br>your eyes settle.</h2>
+      <p class="rv">Two inward-facing cameras are proposed to observe eye movement and the small patterns that follow a turn of the head.</p>
+      <figure class="viz rv">
+        <svg viewBox="0 0 400 220" role="img" aria-label="Illustrative eye tracking visualization">
+          <defs><clipPath id="eyeclip"><path d="M30 110 Q200 10 370 110 Q200 210 30 110Z"/></clipPath></defs>
+          <path class="ln" d="M30 110 Q200 10 370 110 Q200 210 30 110Z"/>
+          <g clip-path="url(#eyeclip)">
+            <circle class="ln" cx="200" cy="110" r="52"/>
+            <circle class="ln dim" cx="200" cy="110" r="34"/>
+            <circle class="pupil" cx="200" cy="110" r="16"/>
+            <path class="trace" d="M120 120 L150 100 L170 130 L215 95 L250 125 L285 105"/>
+            <rect class="scan" x="0" y="0" width="2" height="220"/>
+          </g>
+          <path class="ln dim" d="M20 110H380M200 10V210"/>
+        </svg>
+        <figcaption>Illustrative visualization</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="movement" class="sec left" data-state="movement">
+    <div class="col">
+      <p class="eyebrow">Movement &amp; balance</p>
+      <h2 class="rv">Walking, turning,<br>standing still — all data.</h2>
+      <p class="rv">A motion sensor in the temple is proposed to record head movement as you go about the day, so patterns can be compared over time.</p>
+      <figure class="viz rv">
+        <svg viewBox="0 0 400 200" role="img" aria-label="Conceptual movement trajectory">
+          <path class="ln dim" d="M0 100H400M0 50H400M0 150H400"/>
+          <path class="path" d="M10 120 C60 40 90 170 140 100 S210 30 250 110 S330 170 390 70"/>
+          <circle class="pt" cx="140" cy="100" r="3.5"/><circle class="pt" cx="250" cy="110" r="3.5"/><circle class="pt" cx="390" cy="70" r="3.5"/>
+        </svg>
+        <figcaption>Conceptual visualization</figcaption>
+      </figure>
+      <div class="stats rv">
+        <div><b>3-axis</b><span>Head rotation</span></div>
+        <div><b>Gait</b><span>Walking pattern</span></div>
+        <div><b>Sway</b><span>Standing balance</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="analysis" class="sec right" data-state="analysis">
+    <div class="col">
+      <p class="eyebrow">Intelligent analysis</p>
+      <h2 class="rv">Two signals,<br>one understanding.</h2>
+      <div class="flow rv">
+        <div class="wave"><span>Eye movement</span><svg viewBox="0 0 300 40" preserveAspectRatio="none"><path class="w w1" d=""/></svg></div>
+        <div class="wave"><span>Motion pattern</span><svg viewBox="0 0 300 40" preserveAspectRatio="none"><path class="w w2" d=""/></svg></div>
+        <div class="ring">
+          <svg viewBox="0 0 200 200" aria-label="Illustrative circular data visualization">
+            <circle class="ln dim" cx="100" cy="100" r="90"/>
+            <circle class="arc a1" cx="100" cy="100" r="76"/>
+            <circle class="arc a2" cx="100" cy="100" r="60"/>
+            <circle class="ln dim" cx="100" cy="100" r="42"/>
+          </svg>
+          <div><span>Vestibular insight</span><em>Illustrative</em></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="alert" class="sec left" data-state="alert">
+    <div class="col row">
+      <div>
+        <p class="eyebrow">Intelligent alert</p>
+        <h2 class="rv">When something's off,<br>you know first.</h2>
+        <p class="rv">When a pattern differs from your usual baseline, the companion app can send a gentle notification so you can review the data. It is not a diagnosis.</p>
+      </div>
+      <div class="phone rv" aria-label="Illustrative phone notification">
+        <div class="notch"></div>
+        <div class="time">9:41</div>
+        <div class="note">
+          <div class="app"><i></i>NEUQUA <small>now</small></div>
+          <strong>Vestibular Pattern Detected</strong>
+          <span>Review recent movement data</span>
+        </div>
+        <div class="note ghost"><div class="app"><i></i>NEUQUA <small>2h</small></div><span>Daily summary ready</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="join" class="sec cta" data-state="join">
+    <div class="col center">
+      <p class="eyebrow">NEUQUA</p>
+      <h2 class="rv">Intelligent Vestibular<br>Monitoring, Reimagined.</h2>
+      <p class="steps rv">Sense → Analyze → Understand</p>
+      <form id="wait" class="rv" novalidate>
+        <input type="email" id="email" placeholder="Email address" aria-label="Email address" required>
+        <button type="submit">Join the waitlist</button>
+      </form>
+      <p class="fine" id="wmsg" role="status">Conceptual product. No device is available yet.</p>
+    </div>
+  </section>
+</main>
+
+<script>setTimeout(function(){var l=document.getElementById('loader');if(l)l.classList.add('done');},5000);</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>
